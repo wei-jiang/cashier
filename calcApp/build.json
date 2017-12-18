@@ -1,0 +1,11 @@
+{
+    "android": {
+        "release": {
+            "keystore": "../freego.jks",
+            "storePassword": "Freego_2017",
+            "alias": "freego",
+            "password" : "Freego_2017",
+            "keystoreType": ""
+        }
+    }
+}

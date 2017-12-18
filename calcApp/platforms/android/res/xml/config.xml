@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="go.free.oilcmp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <allow-navigation href="cdvfile:*" />
+    <name>油价计算</name>
+    <description>
+        油价计算、比较工具
+    </description>
+    <author email="david@cninone.com" href="http://cordova.io">
+        Freego Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <icon src="res/icon.png" />
+    <allow-intent href="market:*" />
+    <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest">
+        <manifest xmlns:tools="http://schemas.android.com/tools" />
+    </edit-config>
+    <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application/activity">
+        <activity android:configChanges="orientation|keyboardHidden" android:windowSoftInputMode="adjustPan" />
+    </edit-config>
+    <preference name="loglevel" value="DEBUG" />
+</widget>

@@ -1,0 +1,13 @@
+.DS_Store
+node_modules/
+dist/
+npm-debug.log
+secret
+t.js
+test.js
+*.jks
+*.rar
+*.apk
+outputs/
+tmp/
+bak/
