@@ -161,7 +161,7 @@ export default {
       company: "中石化",
       density: "",
       price: "",
-      carriage: "130",
+      carriage: 130,
       result: 0,
       his_quote: [],
       begin_date: "",
@@ -339,6 +339,9 @@ export default {
       if (!this.price || !this.carriage || !this.density) {
         return phonon.alert("价格 或 运费 或 密度， 不能为空！", "请填写参数");
       }
+      this.price = parseFloat(this.price)
+      this.carriage = parseFloat(this.carriage)
+      this.density = parseFloat(this.density)
       this.result = (this.price + this.carriage) / (1000 / this.density);
       this.result = parseFloat(this.result).toFixed(2);
       console.log(this.result);
