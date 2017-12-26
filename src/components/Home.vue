@@ -6,7 +6,7 @@
       </div>
     </header>
     <div class="content">
-      <i class="sel_item">
+      <b class="sel_item">
         <div class="raido_group">
           <div>
             <label class="radio">
@@ -60,7 +60,7 @@
             </label>
           </div>
         </div>
-      </i>
+      </b>
       <div class="parameters">
         <div><div class="caption">价格：</div><input v-model.number="price" type="number" placeholder="价格"></div>
         <div><div class="caption">运费：</div><input v-model.number="carriage" type="number" placeholder="运费"></div>
@@ -79,9 +79,9 @@
         <div class="caption">——</div>
         <input v-model="end_date" type="date" placeholder="截止日期" style="flex:1;" @change="filter_by_date()"/>
       </div>
-      <span class="his-data">
+      <span class="his-data" style="margin-top: 5px;">
         <div class="date" v-for="k0 in group_data['sorted_keys']">
-          <div style="font-size:32px;">{{k0}}</div>
+          <div style="font-size:30px;">{{k0}}</div>
           <!-- {{group_data[k0]['sorted_keys']}} -->
           <div class="oil_type" v-for="k1 in group_data[k0]['sorted_keys']">
             <div style="font-size:26px;">{{k1}}</div>
@@ -399,8 +399,9 @@ export default {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  padding: 1px 5px;
-  border: 2px solid greenyellow;
+  padding: 1px 2px;
+  border: 2px ridge greenyellow;
+
   /* width: 50%; */
 }
 .break {
