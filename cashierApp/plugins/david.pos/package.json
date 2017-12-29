@@ -1,0 +1,60 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "G:\\cashier\\cashierApp\\FreeGo",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "G:\\cashier\\cashierApp\\FreeGo",
+        "spec": "G:\\cashier\\cashierApp\\FreeGo",
+        "type": "directory"
+      },
+      "G:\\cashier\\cashierApp"
+    ]
+  ],
+  "_from": "FreeGo",
+  "_id": "FreeGo@0.0.1",
+  "_inCache": true,
+  "_location": "/FreeGo",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "G:\\cashier\\cashierApp\\FreeGo",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "G:\\cashier\\cashierApp\\FreeGo",
+    "spec": "G:\\cashier\\cashierApp\\FreeGo",
+    "type": "directory"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "file:FreeGo",
+  "_shasum": "a0a5eb0e043ae927ce2bbd6fcb9ecd3e032f8151",
+  "_shrinkwrap": null,
+  "_spec": "G:\\cashier\\cashierApp\\FreeGo",
+  "_where": "G:\\cashier\\cashierApp",
+  "author": {
+    "name": "David"
+  },
+  "cordova": {
+    "id": "cordova-plugin-free-go",
+    "platforms": [
+      "android"
+    ]
+  },
+  "dependencies": {},
+  "description": "A plugin for determining if the user has an appointment coming up shortly",
+  "devDependencies": {},
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "license": "ISC",
+  "name": "FreeGo",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "version": "0.0.1"
+}

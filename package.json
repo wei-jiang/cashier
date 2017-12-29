@@ -6,8 +6,9 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "node build/build.js && cd calcApp && cordova run android --device",
-    "android": "node build/build.js && cd calcApp && cordova build android --release"
+    "android": "node build/build.js && cd cashierApp && cordova run android --device",
+    "build": "node build/build.js && cd cashierApp && cordova build android --release",
+    "ba": "node build/build.js && cd cashierApp && build.bat"
   },
   "dependencies": {
     "jquery": "^3.2.1",

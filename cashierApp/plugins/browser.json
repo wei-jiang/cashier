@@ -1,0 +1,18 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "go.free.oilcmp"
+    },
+    "david.pos": {
+      "PACKAGE_NAME": "go.free.zw"
+    }
+  },
+  "dependent_plugins": {}
+}

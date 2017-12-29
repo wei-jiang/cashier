@@ -1,0 +1,17 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "中网收银",
+  "short_name": "中网收银",
+  "version": "go.free.zw",
+  "description": "反扫收银工具",
+  "author": "Freego Team",
+  "icons": [
+    {
+      "src": "res/icon.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    }
+  ],
+  "start_url": "index.html"
+}

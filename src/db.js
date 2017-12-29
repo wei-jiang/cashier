@@ -13,7 +13,7 @@ export default new Promise((resolve, reject) => {
             autoload: true,
             autoloadCallback: () => {
                 db = {
-                    his_quote: quoteDB.getCollection("his_quote") ? quoteDB.getCollection("his_quote") : quoteDB.addCollection("his_quote"),
+                    his_order: quoteDB.getCollection("his_order") ? quoteDB.getCollection("his_order") : quoteDB.addCollection("his_order"),
                     // orders: quoteDB.getCollection("orders") ? quoteDB.getCollection("orders") : quoteDB.addCollection("orders"),
                 }
                 resolve(db);

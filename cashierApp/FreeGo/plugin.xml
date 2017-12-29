@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin id="david.pos" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>
+		FreeGo
+	</name>
+	<js-module name="Pos" src="www/FreeGo.js">
+		<clobbers target="Pos" />
+	</js-module>
+	<platform name="android">
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="Pos">
+				<param name="android-package" value="freego.david.Pos" />
+			</feature>
+		</config-file>
+		<config-file parent="/manifest/application" target="AndroidManifest.xml">
+			<activity android:name="freego.david.Scanner">
+			</activity>         
+		</config-file>
+		<config-file parent="/*" target="AndroidManifest.xml">
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+			<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+			<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+			<uses-permission android:name="android.permission.CAMERA" />
+			<uses-permission android:name="android.permission.FLASHLIGHT" />
+			<uses-permission android:name="android.permission.READ_LOGS" />
+			<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+			<uses-permission android:name="android.permission.INTERNET" />
+
+			<uses-feature android:name="android.hardware.camera" />
+			<uses-feature android:name="android.hardware.camera.autofocus" />
+			
+		</config-file>
+		<framework src="me.dm7.barcodescanner:zxing:1.9.8" />
+		<framework src="com.google.zxing:core:3.3.0" />
+		<framework src="plugin.gradle" custom="true" type="gradleReference"/>
+
+		<source-file src="src/android/Pos.java" target-dir="src/freego/david" />
+		<source-file src="src/android/Scanner.java" target-dir="src/freego/david" />
+		<source-file src="src/android/MyConfig.java" target-dir="src/freego/david" />
+		<source-file src="src/android/WXPayWrapper.java" target-dir="src/freego/david" />
+	</platform>
+</plugin>

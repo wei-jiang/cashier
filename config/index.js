@@ -4,8 +4,8 @@ var path = require('path')
 module.exports = {
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../calcApp/www/index.html'),
-    assetsRoot: path.resolve(__dirname, '../calcApp/www'),
+    index: path.resolve(__dirname, '../cashierApp/www/index.html'),
+    assetsRoot: path.resolve(__dirname, '../cashierApp/www'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '', //no slash, important
     productionSourceMap: true,

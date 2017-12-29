@@ -9,7 +9,7 @@ require('phonon/dist/css/phonon.min.css')
 require('phonon/dist/js/phonon.js')
 
 /* eslint-disable no-new */
-new Vue({
+window.vm = new Vue({
   el: '#app',
   template: '<App/>',
   components: { App }
