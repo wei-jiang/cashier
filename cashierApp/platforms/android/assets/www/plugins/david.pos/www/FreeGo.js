@@ -10,6 +10,12 @@ exports.scan_by_camera = function (success, error) {
 exports.req_pay = function (out_trade_no, body, total_fee, auth_code, success, error) {
     exec(success, error, 'Pos', 'req_pay', [out_trade_no, body, total_fee, auth_code]);
 };
+exports.query_order = function (out_trade_no, success, error) {
+    exec(success, error, 'Pos', 'query_order', [out_trade_no]);
+};
+exports.close_order = function (out_trade_no, success, error) {
+    exec(success, error, 'Pos', 'close_order', [out_trade_no]);
+};
 exports.exit = function () {
     exec(function(){}, function(){}, 'Pos', 'exit', []);
 };

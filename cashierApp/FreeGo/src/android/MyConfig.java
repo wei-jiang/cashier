@@ -1,5 +1,7 @@
 package freego.david;
 
+import android.content.res.AssetManager; 
+import android.content.res.AssetFileDescriptor; 
 import com.github.wxpay.sdk.WXPayConfig;
 import java.io.*;
 
@@ -8,13 +10,21 @@ public class MyConfig implements WXPayConfig{
 
     private byte[] certData;
 
-    public MyConfig() {
-        // String certPath = "./cert/apiclient_cert.p12";
-        // File file = new File(certPath);
-        // InputStream certStream = new FileInputStream(file);
-        // this.certData = new byte[(int) file.length()];
-        // certStream.read(this.certData);
-        // certStream.close();
+    public MyConfig(AssetManager assetManager) {
+        try{
+            AssetFileDescriptor fileDescriptor = assetManager.openFd("apiclient_cert.p12");
+            FileInputStream stream = fileDescriptor.createInputStream();
+            // String certPath = "./cert/apiclient_cert.p12";
+            // File file = new File(certPath);
+            // InputStream certStream = new FileInputStream(file);
+            this.certData = new byte[(int) fileDescriptor.getLength()];
+            stream.read(this.certData);
+            stream.close();
+        } catch(Exception e){
+            e.printStackTrace();
+        } finally {
+            // close in & out            
+        }                
     }
 
     public String getAppID() {

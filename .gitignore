@@ -6,6 +6,8 @@ secret
 t.js
 test.js
 *.jks
+*.p12
+*.pem
 *.rar
 *.apk
 outputs/

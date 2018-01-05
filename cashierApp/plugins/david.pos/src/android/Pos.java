@@ -42,6 +42,7 @@ import java.util.Arrays;
 public class Pos extends CordovaPlugin {
     private CordovaWebView mWebView;
     private CallbackContext callbackContext; 
+    private WXPayWrapper wxpay;
     public static final String CAMERA = Manifest.permission.CAMERA;
     public static final int CAMERA_REQ_CODE = 0;
     public static final int PERMISSION_DENIED_ERROR = 20;
@@ -56,6 +57,8 @@ public class Pos extends CordovaPlugin {
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
         mWebView = webView;
+        AssetManager assetManager = cordova.getActivity().getApplicationContext().getAssets();
+        wxpay = new WXPayWrapper(assetManager);
     }
 
     private void show(String txt) {
@@ -73,6 +76,12 @@ public class Pos extends CordovaPlugin {
             this.req_pay(args, callbackContext);
 
             return true;
+        } else if (action.equals("query_order")) {
+            this.query_order(args, callbackContext);
+            return true;
+        } else if (action.equals("close_order")) {
+            this.close_order(args, callbackContext);
+            return true;        
         } else if (action.equals("scan_by_camera")) {
             if (cordova.hasPermission(CAMERA)) {
                 start_scan();
@@ -129,10 +138,17 @@ public class Pos extends CordovaPlugin {
     }
 
     private void req_pay(JSONArray args, CallbackContext callbackContext) throws JSONException {
-        String ret = WXPayWrapper.do_micropay(args);
+        String ret = wxpay.do_micropay(args);
         callbackContext.success(ret);
     }
-
+    private void query_order(JSONArray args, CallbackContext callbackContext) throws JSONException {
+        String ret = wxpay.do_orderQuery(args);
+        callbackContext.success(ret);
+    }
+    private void close_order(JSONArray args, CallbackContext callbackContext) throws JSONException {
+        String ret = wxpay.do_closeOrder(args);
+        callbackContext.success(ret);
+    }
     private Activity getActivity() {
         return this.cordova.getActivity();
     }
