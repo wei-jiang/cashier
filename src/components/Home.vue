@@ -46,8 +46,9 @@
 <script>
 import moment from "moment";
 import _ from "lodash";
-// import Noty from 'noty';
+import Noty from 'noty';
 import adb from "../db";
+import net from "../net";
 let t_data = [
   {
     dt: "2017-12-29 16:34:19",
@@ -77,6 +78,16 @@ export default {
   },
   created: function() {
     this.$root.$on("on_qrcode", qr_code => {
+      //wx:（注：用户刷卡条形码规则：18位纯数字，以10、11、12、13、14、15开头）
+      //ali: 25~30开头的长度为16~24位的数字，实际字符串长度以开发者获取的付款码长度为准
+      let h = parseInt( qr_code.slice(0,2) )
+      if(h >= 10 && h <=15){
+        //wx auth code
+      } else if(h >= 25 && h <=30){
+        //ali auth code
+      } else {
+        //unknown
+      }
       let out_trade_no = moment().format("YYYYMMDDHHmmssSSS");
       Pos.req_pay(out_trade_no, this.p_name, this.price, qr_code, res => {
         // alert("Pos.req_pay返回：" + res);

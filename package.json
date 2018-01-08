@@ -8,7 +8,8 @@
     "dev": "node build/dev-server.js",
     "android": "node build/build.js && cd cashierApp && cordova run android --device",
     "build": "node build/build.js && cd cashierApp && cordova build android --release",
-    "ba": "node build/build.js && cd cashierApp && build.bat"
+    "ba": "node build/build.js && cd cashierApp && build.bat",
+    "spa": "node build/build.js"
   },
   "dependencies": {
     "jquery": "^3.2.1",
