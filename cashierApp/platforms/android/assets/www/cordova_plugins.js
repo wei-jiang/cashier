@@ -186,7 +186,8 @@ module.exports.metadata =
 // TOP OF METADATA
 {
   "cordova-plugin-file": "5.0.0",
-  "david.pos": "0.0.1"
+  "david.pos": "0.0.1",
+  "cordova-plugin-whitelist": "1.3.3"
 };
 // BOTTOM OF METADATA
 });

@@ -14,12 +14,14 @@
     "cordova-android": "^6.3.0",
     "cordova-browser": "^5.0.1",
     "cordova-plugin-file": "^5.0.0",
+    "cordova-plugin-whitelist": "^1.3.3",
     "david.pos": "./FreeGo"
   },
   "cordova": {
     "plugins": {
       "cordova-plugin-file": {},
-      "david.pos": {}
+      "david.pos": {},
+      "cordova-plugin-whitelist": {}
     },
     "platforms": [
       "android",

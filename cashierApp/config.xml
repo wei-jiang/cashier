@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="go.free.zw" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>中网收银</name>
+    <name>智慧收银</name>
     <description>
         反扫收银工具
     </description>
@@ -33,4 +33,5 @@
     <engine name="browser" spec="^5.0.1" />
     <plugin name="cordova-plugin-file" spec="^5.0.0" />
     <plugin name="david.pos" spec="./FreeGo" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
 </widget>

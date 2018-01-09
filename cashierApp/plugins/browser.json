@@ -12,6 +12,9 @@
     },
     "david.pos": {
       "PACKAGE_NAME": "go.free.zw"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "go.free.zw"
     }
   },
   "dependent_plugins": {}

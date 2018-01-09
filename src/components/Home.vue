@@ -68,7 +68,7 @@ window.on_qr = function(qr) {
     phonon.alert("扫码失败，请重试", "用户取消操作");
   }
 };
-
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoi6JSh5Lym56u55rW3Iiwid3hfaWQiOiIxNDk2MTMzMDYyIiwiYWx5X2lkIjoiMjA4ODQyMTc1ODIyMjgyNyIsImFsaSI6eyJhcHBfYXV0aF90b2tlbiI6IjIwMTgwMUJCYmM4N2RlOTc1YjM2NDMxMTlhYzQzZGEwODAwYjNYODIiLCJhcHBfcmVmcmVzaF90b2tlbiI6IjIwMTgwMUJCMjM4NTBhZGUzZmM2NGJmZmJhZmNkMzEyZDhmMDZYODIiLCJleHBpcmVzX2luIjozMTUzNjAwMCwicmVfZXhwaXJlc19pbiI6MzIxNDA4MDB9LCJib2R5Ijoi6Ieq6am-6L2m56WoIiwidG90YWxfZmVlIjoiMSIsImlhdCI6MTUxNTQ2Mjc0OX0.Xpz6WVnQvMYZEEmerCQLB5DwIbMQp7nkf63rJKWZYZk'
 export default {
   name: "PhononHomePage",
   props: {
@@ -83,18 +83,35 @@ export default {
       let h = parseInt( qr_code.slice(0,2) )
       if(h >= 10 && h <=15){
         //wx auth code
+        net.emit('wx_auth_pay', {
+          token:token,
+          body:this.p_name,
+          total_fee:this.price,
+          auth_code:qr_code
+        }, res=>{
+          alert(JSON.stringify(res) )
+        })
       } else if(h >= 25 && h <=30){
         //ali auth code
+        net.emit('ali_auth_pay', {
+          token:token,
+          body:this.p_name,
+          total_fee:this.price,
+          auth_code:qr_code
+        }, res=>{
+          alert(JSON.stringify(res) )
+        })
       } else {
         //unknown
       }
-      let out_trade_no = moment().format("YYYYMMDDHHmmssSSS");
-      Pos.req_pay(out_trade_no, this.p_name, this.price, qr_code, res => {
-        // alert("Pos.req_pay返回：" + res);
-        let data = JSON.parse(res)
-        let status = `${data.result_code}` + data.err_code_des? `(${data.err_code_des})` : '';
-        this.save_order(this.p_name, this.price, status)
-      });
+      //these are local service(no uese)
+      // let out_trade_no = moment().format("YYYYMMDDHHmmssSSS");
+      // Pos.req_pay(out_trade_no, this.p_name, this.price, qr_code, res => {
+      //   // alert("Pos.req_pay返回：" + res);
+      //   let data = JSON.parse(res)
+      //   let status = `${data.result_code}` + data.err_code_des? `(${data.err_code_des})` : '';
+      //   this.save_order(this.p_name, this.price, status)
+      // });
     });
   },
   mounted() {

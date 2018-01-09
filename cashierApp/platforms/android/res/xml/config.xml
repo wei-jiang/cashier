@@ -8,6 +8,10 @@
     <feature name="Pos">
         <param name="android-package" value="freego.david.Pos" />
     </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>中网收银</name>
     <description>
         反扫收银工具
