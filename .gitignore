@@ -9,6 +9,7 @@ test.js
 *.p12
 *.pem
 *.rar
+*.map
 *.apk
 outputs/
 tmp/
