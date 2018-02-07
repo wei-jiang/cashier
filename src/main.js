@@ -5,7 +5,7 @@ import 'noty/lib/noty.css'
 import App from './App'
 import './net'
 
-Vue.config.ignoredElements = ['home', 'page-two']
+Vue.config.ignoredElements = ['home', 'product']
 
 require('phonon/dist/css/phonon.min.css')
 require('phonon/dist/js/phonon.js')

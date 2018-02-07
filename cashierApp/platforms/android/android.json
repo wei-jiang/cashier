@@ -101,7 +101,7 @@
                 "android:hardwareAccelerated": "true",
                 "android:versionCode": "10000",
                 "android:versionName": "1.0.0",
-                "package": "go.free.zw",
+                "package": "go.free.cashier",
                 "xmlns:android": "http://schemas.android.com/apk/res/android",
                 "xmlns:tools": "http://schemas.android.com/tools"
               }

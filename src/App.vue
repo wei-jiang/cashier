@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <home :app="app"></home>
-    <page-two :app="app"></page-two>
+    <product :app="app"></product>
   </div>
 </template>
 
 <script>
 import Home from './components/Home.vue'
-import PageTwo from './components/PageTwo.vue'
+import Product from './components/Product.vue'
 
 export default {
   name: 'app',
@@ -36,7 +36,7 @@ export default {
 
   components: {
     Home,
-    PageTwo
+    Product
   }
 }
 </script>

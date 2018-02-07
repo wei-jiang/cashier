@@ -8,13 +8,14 @@ export default new Promise((resolve, reject) => {
     if (db) {
         resolve(db);
     } else {
-        let quoteDB = new Loki("quote.db", {
+        let cashierDB = new Loki("cashier.db", {
             adapter: idbAdapter,
             autoload: true,
             autoloadCallback: () => {
                 db = {
-                    his_order: quoteDB.getCollection("his_order") ? quoteDB.getCollection("his_order") : quoteDB.addCollection("his_order"),
-                    // orders: quoteDB.getCollection("orders") ? quoteDB.getCollection("orders") : quoteDB.addCollection("orders"),
+                    his_order: cashierDB.getCollection("his_order") ? cashierDB.getCollection("his_order") : cashierDB.addCollection("his_order"),
+                    mch: cashierDB.getCollection("mch") ? cashierDB.getCollection("mch") : cashierDB.addCollection("mch"),
+                    product: cashierDB.getCollection("product") ? cashierDB.getCollection("product") : cashierDB.addCollection("product"),
                 }
                 resolve(db);
             },

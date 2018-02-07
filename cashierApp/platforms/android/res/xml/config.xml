@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="go.free.zw" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="go.free.cashier" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <feature name="File">
         <param name="android-package" value="org.apache.cordova.file.FileUtils" />
         <param name="onload" value="true" />
@@ -12,7 +12,7 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <name>中网收银</name>
+    <name>智慧收银</name>
     <description>
         反扫收银工具
     </description>
