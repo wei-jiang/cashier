@@ -224,7 +224,7 @@ export default {
                 token,
                 out_trade_no,
                 body: this.p_name,
-                total_fee: this.price,
+                total_fee: parseFloat(this.price)*100,
                 auth_code: qr_code
               },
               res => {
