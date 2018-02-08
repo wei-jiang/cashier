@@ -21,12 +21,12 @@
         <div><div class="caption">价格(元)：</div><input v-model.number="price" type="number" placeholder="价格"></div>
       </div>      
       <div style="justify-content:space-around;margin-top:10px;">
-        <button v-if="device_ready && has_mch" class="btn primary" style="flex:1;" @click.prevent="read_pay_code()">
+        <button v-if="device_ready && has_mch" class="btn primary" style="flex:1;" @click.prevent="read_pay_code()" v-bind:disabled="btn_read_paycode_disabled">
           <h3 style="display:inline-block;margin:auto;">
-            读取付款码收款
+            {{btn_read_paycode_disabled?'交易中，请稍候……':'读取付款码收款'}}
           </h3>
         </button>
-        <button v-if="device_ready" class="btn positive" style="flex:1; margin-top:10px;" @click.prevent="read_mch_info()">
+        <button v-if="device_ready" class="btn positive" style="flex:1; margin-top:10px;" @click.prevent="read_mch_info()" v-bind:disabled="btn_read_mch_disabled">
           <h3 style="display:inline-block;margin:auto;">
             {{has_mch?'更新商户信息':'读取商户信息'}}
           </h3>
@@ -102,6 +102,8 @@ export default {
   },
   data() {
     return {
+      btn_read_paycode_disabled: false,
+      btn_read_mch_disabled: false,
       qr_dealer:null,
       has_mch:false,
       mch_title:'',
@@ -173,6 +175,7 @@ export default {
       })   
     },
     handle_mch_info(qr_code){
+      this.btn_read_mch_disabled = true;
       net.emit( "verify_mch_token", qr_code,
         res => {
           if(res.ret == 0){
@@ -185,7 +188,8 @@ export default {
             })                
           } else {
             phonon.alert("无效的商户信息！", "读取商户信息失败");
-          }
+          }          
+          this.btn_read_mch_disabled = false;          
         }
       );
     },
@@ -200,6 +204,7 @@ export default {
           let h = parseInt(qr_code.slice(0, 2));
           if (h >= 10 && h <= 15) {
             if( !util.is_wx_capable(mch.info.ability) ) return phonon.alert("请联系【智慧旅游商务】开通微信收款！", "未开通微信反扫功能");
+            this.btn_read_paycode_disabled = true;
             //wx auth code
             net.emit(
               "wx_auth_pay",
@@ -213,10 +218,12 @@ export default {
               res => {
                 // alert(JSON.stringify(res));
                 this.save_order(out_trade_no, this.p_name, this.price, res.msg)
+                this.btn_read_paycode_disabled = false;
               }
             );
           } else if (h >= 25 && h <= 30) {
             if( !util.is_ali_capable(mch.info.ability) ) return phonon.alert("请联系【智慧旅游商务】开通支付宝收款！", "未开通支付宝反扫功能");
+            this.btn_read_paycode_disabled = true;
             //ali auth code
             net.emit(
               "ali_auth_pay",
@@ -230,6 +237,7 @@ export default {
               res => {
                 // alert(JSON.stringify(res));
                 this.save_order(out_trade_no, this.p_name, this.price, res.msg)
+                this.btn_read_paycode_disabled = false;
               }
             );
           } else {
@@ -280,10 +288,10 @@ export default {
     },
     read_qr() {      
       window.Pos.scan_by_camera(
-        function(data) {
+        data=> {
           // alert(data);
         },
-        function(err) {
+        err=> {
           alert(err);
         }
       );
@@ -299,7 +307,7 @@ export default {
           name += `${p.name}(${p.count}) `
         }
       })
-      this.price = price
+      this.price = parseFloat(price).toFixed(2)
       this.p_name = name
     },
     get_his_data() {
